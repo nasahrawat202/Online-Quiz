@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Quiz Maker</title>
+  <link rel="stylesheet" href="Quiz.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="top-header">
+    <div class="navbar">
+      <div class="logo">
+        <i class="fas fa-brain"></i>
+        Quiz Maker
+      </div>
+      
+      <!-- Welcome text -->
+      <div id="welcomeUser" class="welcome-text"></div>
+      
+      <!-- Auth buttons -->
+      <div class="auth-buttons">
+        <a href="register.html" id="registerBtn" class="btn-outline">
+          <i class="fas fa-user-plus"></i> SIGN UP
+        </a>
+        <a href="login.html" id="loginBtn" class="btn-outline">
+          <i class="fas fa-sign-in-alt"></i> LOG IN
+        </a>
+        <button id="logoutBtn" class="btn-outline" style="display:none;">
+          <i class="fas fa-sign-out-alt"></i> LOG OUT
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-animation">
+        <div class="floating-icons">
+          <i class="fas fa-question-circle"></i>
+          <i class="fas fa-lightbulb"></i>
+          <i class="fas fa-trophy"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      
+      <h1 class="hero-title">Welcome to the <span class="highlight">Online Quiz Maker</span></h1>
+      <p class="hero-subtitle">Create amazing quizzes, challenge your friends, and test your knowledge!</p>
+      
+      <div class="stats-container">
+        <div class="stat-box">
+          <i class="fas fa-users"></i>
+          <span class="stat-number" data-target="1250">0</span>
+          <span class="stat-label">Active Users</span>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-clipboard-list"></i>
+          <span class="stat-number" data-target="450">0</span>
+          <span class="stat-label">Quizzes Created</span>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-chart-line"></i>
+          <span class="stat-number" data-target="89">0</span>
+          <span class="stat-label">Success Rate</span>
+        </div>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="create-quiz.html" class="btn btn-primary">
+          <i class="fas fa-plus-circle"></i> Create Quiz
+        </a>
+        <a href="take-quiz.html" class="btn btn-secondary">
+          <i class="fas fa-play-circle"></i> Take Quiz
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Quiz Maker?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Easy to Use</h3>
+          <p>Create professional quizzes in minutes with our intuitive drag-and-drop interface</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Friendly</h3>
+          <p>Take quizzes anywhere, anytime. Fully responsive design for all devices</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Detailed Analytics</h3>
+          <p>Track performance, analyze results, and get insights to improve learning</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h3>Easy Sharing</h3>
+          <p>Share your quizzes with friends, students, or colleagues with a simple link</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Timed Quizzes</h3>
+          <p>Add time limits to make quizzes more challenging and engaging</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Leaderboards</h3>
+          <p>Compete with others and see who tops the leaderboard in real-time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Quizzes Section -->
+  <section class="recent-quizzes">
+    <div class="container">
+      <h2 class="section-title">Popular Quizzes</h2>
+      <div class="quiz-cards">
+        <div class="quiz-card">
+          <div class="quiz-image">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="quiz-info">
+            <h3>Mathematics Quiz</h3>
+            <p>Test your math skills with 20 challenging questions</p>
+            <div class="quiz-meta">
+              <span><i class="fas fa-user"></i> 234 taken</span>
+              <span><i class="fas fa-star"></i> 4.8</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quiz-card">
+          <div class="quiz-image">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div class="quiz-info">
+            <h3>Science Quiz</h3>
+            <p>Explore the wonders of science with interactive questions</p>
+            <div class="quiz-meta">
+              <span><i class="fas fa-user"></i> 189 taken</span>
+              <span><i class="fas fa-star"></i> 4.6</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quiz-card">
+          <div class="quiz-image">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="quiz-info">
+            <h3>Geography Quiz</h3>
+            <p>How well do you know the world? Find out now!</p>
+            <div class="quiz-meta">
+              <span><i class="fas fa-user"></i> 156 taken</span>
+              <span><i class="fas fa-star"></i> 4.5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Updated!</h2>
+        <p>Get the latest quizzes and updates delivered to your inbox</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email address">
+          <button class="btn btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-brain"></i> Quiz Maker</h3>
+          <p>Create, share, and take quizzes like never before!</p>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="create-quiz.html">Create Quiz</a></li>
+            <li><a href="take-quiz.html">Take Quiz</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Quiz Maker. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loading Screen (Optional) -->
+  <div id="loadingScreen" style="display: none;">
+    <div class="loading-content">
+      <div class="loading-spinner">
+        <i class="fas fa-brain"></i>
+      </div>
+      <p>Loading Quiz Maker...</p>
+    </div>
+  </div>
+
+  <!-- Message Container for Notifications -->
+  <div id="messageContainer"></div>
+
+  <script src="Quiz.js"></script>
+</body>
+</html>

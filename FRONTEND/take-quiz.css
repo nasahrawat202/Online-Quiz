@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.top-header {
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 20px rgba(0, 247, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00f7ff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo i {
+  animation: pulse 2s infinite;
+}
+
+/* Quiz Progress */
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  max-width: 300px;
+}
+
+.progress-info {
+  color: #00f7ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f7ff, #0ff);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Timer */
+.timer-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 77, 87, 0.1);
+  border: 1px solid rgba(255, 77, 87, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #ff4d57;
+  font-weight: 600;
+}
+
+.timer-container.warning {
+  animation: timerWarning 1s ease-in-out infinite alternate;
+}
+
+/* Subject Name Highlighting Styles */
+.category-card h3 {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Mathematics - Blue */
+.category-card.math h3,
+.category-badge.math {
+  color: #4A90E2;
+  background: linear-gradient(45deg, #4A90E2, #6BB6FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Science - Green */
+.category-card.science h3,
+.category-badge.science {
+  color: #00C851;
+  background: linear-gradient(45deg, #00C851, #00FF88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* English - Purple */
+.category-card.english h3,
+.category-badge.english {
+  color: #9C27B0;
+  background: linear-gradient(45deg, #9C27B0, #E91E63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* General Knowledge - Orange */
+.category-card.gk h3,
+.category-badge.gk {
+  color: #FF9800;
+  background: linear-gradient(45deg, #FF9800, #FFC107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Programming/Coding - Red */
+.category-card.coding h3,
+.category-badge.coding {
+  color: #F44336;
+  background: linear-gradient(45deg, #F44336, #FF5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Quizzes - Cyan */
+.category-card.custom h3,
+.category-badge.custom {
+  color: #00BCD4;
+  background: linear-gradient(45deg, #00BCD4, #00E5FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Category Badge Highlighting in Quiz Section */
+.category-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Add glow effect on hover */
+.category-card:hover h3 {
+  filter: drop-shadow(0 0 8px currentColor);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #00f7ff, #0ff);
+  color: #000;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #00ff88, #00cc66);
+  color: #000;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(45deg, #ff4757, #ff3838);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #00f7ff;
+  border: 1px solid #00f7ff;
+}
+
+.btn-outline:hover {
+  background: #00f7ff;
+  color: #000;
+}
+
+.btn-home {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #555;
+}
+
+.btn-home:hover {
+  background: #555;
+  color: #fff;
+}
+
+.btn-hint {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.btn-hint:hover {
+  background: #ffc107;
+  color: #000;
+}
+
+/* Welcome Card */
+.welcome-card {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.welcome-header {
+  background: rgba(0, 247, 255, 0.1);
+  border: 1px solid rgba(0, 247, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-header i {
+  font-size: 3rem;
+  color: #00f7ff;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcome-header h1 {
+  font-size: 2.5rem;
+  color: #00f7ff;
+  margin-bottom: 1rem;
+}
+
+.welcome-header p {
+  font-size:

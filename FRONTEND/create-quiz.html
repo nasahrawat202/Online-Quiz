@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Quiz - Quiz Maker</title>
+  <link rel="stylesheet" href="create-quiz.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="top-header">
+    <div class="navbar">
+      <div class="logo">
+        <i class="fas fa-plus-circle"></i>
+        Create Quiz
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">Step 1 of 3</span>
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="nav-buttons">
+        <button id="saveQuizBtn" class="btn btn-save" disabled>
+          <i class="fas fa-save"></i> Save Quiz
+        </button>
+        <a href="Quiz.html" class="btn btn-back">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Quiz Setup Section -->
+    <section class="quiz-setup" id="quizSetup">
+      <div class="setup-card">
+        <div class="card-header">
+          <i class="fas fa-cog"></i>
+          <h2>Quiz Information</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="quizTitle">Quiz Title *</label>
+          <input type="text" id="quizTitle" placeholder="Enter an engaging quiz title..." maxlength="100">
+          <div class="char-counter"><span id="titleCounter">0</span>/100</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="quizDescription">Description</label>
+          <textarea id="quizDescription" placeholder="Brief description of your quiz..." rows="3" maxlength="250"></textarea>
+          <div class="char-counter"><span id="descCounter">0</span>/250</div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quizCategory">Category</label>
+            <select id="quizCategory">
+              <option value="">Select Category</option>
+              <option value="general">General Knowledge</option>
+              <option value="science">Science</option>
+              <option value="math">Mathematics</option>
+              <option value="history">History</option>
+              <option value="geography">Geography</option>
+              <option value="sports">Sports</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="technology">Technology</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="quizDifficulty">Difficulty Level</label>
+            <select id="quizDifficulty">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="timeLimit">Time Limit (minutes)</label>
+            <input type="number" id="timeLimit" min="1" max="180" value="15">
+          </div>
+          
+          <div class="form-group">
+            <label>Quiz Settings</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="shuffleQuestions">
+                <span class="checkmark"></span>
+                Shuffle Questions
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="showResults">
+                <span class="checkmark"></span>
+                Show Results Immediately
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary btn-next" onclick="nextStep()">
+          Next: Add Questions <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Questions Section -->
+    <section class="questions-section" id="questionsSection" style="display: none;">
+      <div class="questions-header">
+        <h2><i class="fas fa-question-circle"></i> Quiz Questions</h2>
+        <div class="questions-counter">
+          <span id="questionCount">0</span> Questions Added
+        </div>
+      </div>
+      
+      <div class="questions-container" id="questionsContainer">
+        <!-- Questions will be added here dynamically -->
+      </div>
+      
+      <div class="add-question-section">
+        <button class="btn btn-add-question" onclick="addQuestion()">
+          <i class="fas fa-plus"></i> Add New Question
+        </button>
+        
+        <div class="question-types">
+          <span>Question Type:</span>
+          <select id="questionType">
+            <option value="multiple-choice">Multiple Choice</option>
+            <option value="true-false">True/False</option>
+            <option value="fill-blank">Fill in the Blank</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="section-navigation">
+        <button class="btn btn-secondary" onclick="prevStep()">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button class="btn btn-primary" onclick="nextStep()" id="reviewBtn" disabled>
+          Review Quiz <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Review Section -->
+    <section class="review-section" id="reviewSection" style="display: none;">
+      <div class="review-card">
+        <div class="card-header">
+          <i class="fas fa-eye"></i>
+          <h2>Review Your Quiz</h2>
+        </div>
+        
+        <div class="quiz-summary" id="quizSummary">
+          <!-- Quiz summary will be displayed here -->
+        </div>
+        
+        <div class="questions-preview" id="questionsPreview">
+          <!-- Questions preview will be displayed here -->
+        </div>
+        
+        <div class="section-navigation">
+          <button class="btn btn-secondary" onclick="prevStep()">
+            <i class="fas fa-arrow-left"></i> Back to Questions
+          </button>
+          <button class="btn btn-success" onclick="publishQuiz()">
+            <i class="fas fa-rocket"></i> Publish Quiz
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="success-animation">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Quiz Created Successfully!</h3>
+      <p>Your quiz has been saved and is ready to share.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="shareQuiz()">
+          <i class="fas fa-share"></i> Share Quiz
+        </button>
+        <button class="btn btn-secondary" onclick="createAnother()">
+          <i class="fas fa-plus"></i> Create Another
+        </button>
+        <button class="btn btn-outline" onclick="goHome()">
+          <i class="fas fa-home"></i> Go Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="create-quiz.js"></script>
+</body>
+</html>

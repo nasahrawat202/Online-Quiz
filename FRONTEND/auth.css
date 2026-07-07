@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #0ff;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-container {
+  background: #000;
+  border: 2px solid #0ff;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px #0ff;
+  width: 350px;
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #111;
+  border: 1px solid #0ff;
+  border-radius: 8px;
+  color: #0ff;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.form-box button:hover {
+  background: #00cccc;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #0ff;
+}
+
+.link {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.link a {
+  color: #0ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.social-buttons button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.google {
+  background: #db4437;
+  color: #fff;
+}
+
+.facebook {
+  background: #3b5998;
+  color: #fff;
+}
+
+.apple {
+  background: #333;
+  color: #fff;
+}
